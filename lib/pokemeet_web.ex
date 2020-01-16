@@ -50,6 +50,7 @@ defmodule PokemeetWeb do
     end
   end
 
+  @spec channel :: {:__block__, [], [{:import, [...], [...]} | {:use, [...], [...]}, ...]}
   def channel do
     quote do
       use Phoenix.Channel

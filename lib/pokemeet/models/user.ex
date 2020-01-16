@@ -1,22 +1,27 @@
-defmodule Pokemeet.Accounts.User do
+defmodule Pokemeet.User do
+
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias Pokemeet.{Conversation}
+
   schema "users" do
-    field :email, :string, unique: true
+    field :email, :string
+    field :name, :string
     field :password, :string, virtual: true
     field :password_hash, :string
     field :token, :string, virtual: true
-    field :username, :string
+
+    many_to_many :conversations, Conversation, join_through: "conversation_users"
 
     timestamps()
   end
 
-  @doc false
+
   def changeset(%__MODULE__{} = user, attrs) do
     user
-    |> cast(attrs, [:username, :email, :password])
-    |> validate_required([:username, :email, :password])
+    |> cast(attrs, [:name, :email, :password])
+    |> validate_required([:name, :email, :password])
     |> validate_format(:email, ~r/@/)
     |> unique_constraint(:email)
     |> put_password_hash
