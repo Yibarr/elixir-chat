@@ -1,7 +1,6 @@
 defmodule Pokemeet.Resolvers.MessageResolver do
   alias Ecto.Multi
-  alias Pokemeet.Service.ConversationService
-  alias Pokemeet.Service.MessageService
+  alias Pokemeet.Service.{ConversationService, MessageService}
   alias Pokemeet.{Repo, Conversation, Message}
 
   def list(_parent, args, %{context: %{current_user: current_user}}) do

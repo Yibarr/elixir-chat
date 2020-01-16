@@ -1,11 +1,16 @@
 defmodule PokemeetWeb.Router do
-  use PokemeetWeb, :router
+  use Phoenix.Router
 
   pipeline :api do
+    plug Pokemeet.Context
     plug :accepts, ["json"]
   end
 
-  scope "/api", PokemeetWeb do
+  scope "/" do
     pipe_through :api
+
+    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: Pokemeet.Schema
+
+    forward "/", Absinthe.Plug, schema: Pokemeet.Schema
   end
 end

@@ -46,7 +46,10 @@ defmodule Pokemeet.MixProject do
       {:bcrypt_elixir, "~> 2.0"},
       {:absinthe, "~> 1.4"},
       {:absinthe_plug, "~> 1.4"},
-      {:absinthe_phoenix, "~> 1.4"}
+      {:absinthe_phoenix, "~> 1.4"},
+      {:dataloader, "~> 1.0"},
+      {:new_relic_agent, "~> 1.0"},
+      {:new_relic_absinthe, "~> 0.0.2"}
     ]
   end
 

@@ -22,11 +22,11 @@ defmodule Pokemeet.Resolvers.UserResolver do
     args
     |> User.create()
     |> case do
-      {:ok, user} ->
-        {:ok, user_with_token(user)}
-
       {:error, changeset} ->
         {:error, extract_error_msg(changeset)}
+
+      {:ok, user} ->
+        {:ok, user_with_token(user)}
     end
   end
 

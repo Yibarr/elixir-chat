@@ -11,7 +11,9 @@ defmodule Pokemeet.Application do
       # Start the Ecto repository
       Pokemeet.Repo,
       # Start the endpoint when the application starts
-      PokemeetWeb.Endpoint
+      PokemeetWeb.Endpoint,
+
+      {Absinthe.Subscription, [PokemeetWeb.Endpoint]}
       # Starts a worker by calling: Pokemeet.Worker.start_link(arg)
       # {Pokemeet.Worker, arg},
     ]
