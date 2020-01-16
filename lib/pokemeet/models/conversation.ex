@@ -1,8 +1,7 @@
 defmodule Pokemeet.Conversation do
-  use Ecto.Schema
-  import Ecto.Changeset
+  use Pokemeet.Model
 
-  alias Pokemeet.{ConversationUser, Message, User}
+  alias Pokemeet.{Message, User}
 
   schema "conversations" do
     field :title, :string

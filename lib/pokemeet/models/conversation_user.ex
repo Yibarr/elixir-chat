@@ -1,7 +1,5 @@
 defmodule Pokemeet.ConversationUser do
-
-  use Ecto.Schema
-  import Ecto.Changeset
+  use Pokemeet.Model
 
   alias Pokemeet.{Conversation, User}
 
